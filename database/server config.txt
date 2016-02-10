@@ -1,0 +1,6 @@
+database: mysql
+host: localhost
+gate: 3306
+user: development
+password: yagotome
+database name: bd_pessoa
