@@ -1,9 +1,9 @@
-package model.logica;
+package commands;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class PessoaTelaCadastro implements Logica {
+public class PessoaTelaCadastro implements Command {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {		

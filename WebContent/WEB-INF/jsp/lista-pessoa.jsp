@@ -14,11 +14,11 @@
 		function exclui(id, nome) {
 			var ok = confirm("Deseja realmente excluir "+ nome +"?");
 			if (ok){
-				window.location.href = 'mvc?logica=PessoaRemocao&id=' + id;
+				window.location.href = 'mvc?command=PessoaRemocao&id=' + id;
 			}
 		}
 		function altera(id, nome, email, nasc, sexo) {
-			window.location.href = 'mvc?logica=PessoaTelaAlteracao&id=' + id
+			window.location.href = 'mvc?command=PessoaTelaAlteracao&id=' + id
 					+ '&nome=' + nome + '&email=' + email 
 					+ '&nasc=' + nasc + '&sexo=' + sexo;
 		}

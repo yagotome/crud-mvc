@@ -1,4 +1,4 @@
-package model.logica;
+package commands;
 
 import java.sql.Connection;
 import java.text.ParseException;
@@ -9,10 +9,10 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.PessoaDAO;
 import model.Pessoa;
-import model.dao.PessoaDAO;
 
-abstract class PessoaEntrada implements Logica {
+abstract class PessoaEntrada implements Command {
 	
 	@Override
 	public String executa (HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -40,7 +40,7 @@ abstract class PessoaEntrada implements Logica {
 		Connection connection = (Connection) request.getAttribute("connection");
 		grava(new PessoaDAO(connection), pessoa);
 		
-		return "mvc?logica=PessoaLista";
+		return "mvc?command=PessoaLista";
 	}
 	
 	protected abstract void grava(PessoaDAO dao, Pessoa pessoa);

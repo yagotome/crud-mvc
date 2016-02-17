@@ -1,4 +1,4 @@
-package model.logica;
+package commands;
 
 import java.sql.Connection;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.PessoaDAO;
 import model.Pessoa;
-import model.dao.PessoaDAO;
 
-public class PessoaLista implements Logica {
+public class PessoaLista implements Command {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -16,13 +16,13 @@
 </body>
 <script type="text/javascript">
 	document.getElementById("bCadastro").onclick = function() {
-		document.location.href = "mvc?logica=PessoaTelaCadastro";
+		document.location.href = "mvc?command=PessoaTelaCadastro";
 	}
 	document.getElementById("bAlteracao").onclick = function() {
-		document.location.href = "mvc?logica=PessoaTelaAlteracao";
+		document.location.href = "mvc?command=PessoaTelaAlteracao";
 	}
 	document.getElementById("bListagem").onclick = function() {
-		document.location.href = "mvc?logica=PessoaLista";
+		document.location.href = "mvc?command=PessoaLista";
 	}
 </script>
 

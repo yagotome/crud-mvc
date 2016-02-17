@@ -1,4 +1,4 @@
-package controller;
+package servlets;
 
 import java.io.IOException;
 
@@ -8,7 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.logica.Logica;
+
+import commands.Command;
 
 
 @WebServlet("/mvc")
@@ -21,12 +22,12 @@ public class Controller extends HttpServlet {
 	 */
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nomeLogica = "model.logica." 
-					+ request.getParameter("logica");
+		String nomeCommand = "commands." 
+					+ request.getParameter("command");
 		try {
-			Class<?> classe = Class.forName(nomeLogica);
-			Logica logica = (Logica) classe.newInstance();
-			String pagina = logica.executa(request, response);
+			Class<?> classe = Class.forName(nomeCommand);
+			Command command = (Command) classe.newInstance();
+			String pagina = command.executa(request, response);						
 			RequestDispatcher rd = request.getRequestDispatcher(pagina);
 			rd.forward(request, response);
 		} catch (Exception e) {

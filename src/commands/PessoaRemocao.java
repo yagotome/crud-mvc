@@ -1,14 +1,14 @@
-package model.logica;
+package commands;
 
 import java.sql.Connection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.PessoaDAO;
 import model.Pessoa;
-import model.dao.PessoaDAO;
 
-public class PessoaRemocao implements Logica {
+public class PessoaRemocao implements Command {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -18,7 +18,7 @@ public class PessoaRemocao implements Logica {
 		Connection connection = (Connection) request.getAttribute("connection");
 		PessoaDAO dao = new PessoaDAO(connection);
 		dao.exclui(pessoa);
-		return "mvc?logica=PessoaLista";
+		return "mvc?command=PessoaLista";
 	}
 
 }

@@ -1,7 +1,7 @@
-package model.logica;
+package commands;
 
+import dao.PessoaDAO;
 import model.Pessoa;
-import model.dao.PessoaDAO;
 
 public class PessoaAlteracao extends PessoaEntrada {
 

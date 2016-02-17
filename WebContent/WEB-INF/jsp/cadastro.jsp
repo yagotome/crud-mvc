@@ -5,7 +5,7 @@
 	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<%@taglib tagdir="/WEB-INF/tags" prefix="yago" %>
 	<title>
-		${param.logica == 'PessoaTelaCadastro' ? 'Cadastro de uma pessoa' : 'Alteração de uma pessoa'}
+		${param.command == 'PessoaTelaCadastro' ? 'Cadastro de uma pessoa' : 'Alteração de uma pessoa'}
 	</title>
 	<style>
 		label {margin-right: 10px;}
@@ -14,7 +14,7 @@
 <body>
 	<c:import url="/WEB-INF/jsp/header.jsp" />
 	<form action="mvc">
-		<c:if test="${param.logica == 'PessoaTelaAlteracao'}">
+		<c:if test="${param.command == 'PessoaTelaAlteracao'}">
 			<yago:campoTexto label="Id:" id="id" type="number" value="${param.id}" />
 			<br>
 		</c:if>
@@ -27,8 +27,8 @@
 		<yago:comboSexo id="sexo" value="${param.sexo}" />
 		<br>
 		<div>
-		<button name="logica" 
-			value="${param.logica == 'PessoaTelaCadastro' ? 'PessoaInsercao' : 'PessoaAlteracao'}"
+		<button name="command" 
+			value="${param.command == 'PessoaTelaCadastro' ? 'PessoaInsercao' : 'PessoaAlteracao'}"
 			>
 			Salvar
 		</button>
