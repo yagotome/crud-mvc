@@ -1,5 +1,7 @@
 package model.logica;
 
+import java.sql.Connection;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,11 +13,11 @@ public class PessoaRemocao implements Logica {
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int id = Integer.parseInt(request.getParameter("id"));
-		Pessoa p = new Pessoa();
-		p.setId(id);
-		PessoaDAO dao = new PessoaDAO();
-		dao.exclui(p);
-		dao.fechaConexao();
+		Pessoa pessoa = new Pessoa();
+		pessoa.setId(id);
+		Connection connection = (Connection) request.getAttribute("connection");
+		PessoaDAO dao = new PessoaDAO(connection);
+		dao.exclui(pessoa);
 		return "mvc?logica=PessoaLista";
 	}
 

@@ -5,15 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-public class ConnectionFactory {
-	
-	private ConnectionFactory() {}
-	
-	public static Connection getConnection() {
-		return new ConnectionFactory().getConnectionInstance();
-	}
-	
-	private Connection getConnectionInstance() {
+public class ConnectionFactory {	
+	public Connection getConnection() {
 		try {
 			Logger.getGlobal().info("Conexão aberta");
 			Class.forName("com.mysql.jdbc.Driver");

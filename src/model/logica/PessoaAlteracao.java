@@ -6,10 +6,8 @@ import model.dao.PessoaDAO;
 public class PessoaAlteracao extends PessoaEntrada {
 
 	@Override
-	protected void grava(Pessoa pessoa) {
-		PessoaDAO dao = new PessoaDAO();
+	protected void grava(PessoaDAO dao, Pessoa pessoa) {
 		dao.atualiza(pessoa);
-		dao.fechaConexao();
 	}
 	
 }

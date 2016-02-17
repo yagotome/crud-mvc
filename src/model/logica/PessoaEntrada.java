@@ -1,5 +1,6 @@
 package model.logica;
 
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Pessoa;
+import model.dao.PessoaDAO;
 
 abstract class PessoaEntrada implements Logica {
 	
@@ -34,10 +36,13 @@ abstract class PessoaEntrada implements Logica {
 			throw new RuntimeException("Erro de conversão da data"); 
 		}
 		pessoa.setSexo(sexo);
-		grava(pessoa);
+		
+		Connection connection = (Connection) request.getAttribute("connection");
+		grava(new PessoaDAO(connection), pessoa);
+		
 		return "mvc?logica=PessoaLista";
 	}
 	
-	protected abstract void grava(Pessoa pessoa);
+	protected abstract void grava(PessoaDAO dao, Pessoa pessoa);
 	
 }

@@ -8,7 +8,7 @@ import jdbc.ConnectionFactory;
 public class TestaConexao {
 
 	public static void main(String[] args) {
-		Connection cn = ConnectionFactory.getConnection();
+		Connection cn = new ConnectionFactory().getConnection();
 		System.out.println("Conexão aberta.");
 		try {
 			cn.close();

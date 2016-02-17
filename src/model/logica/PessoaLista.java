@@ -1,5 +1,6 @@
 package model.logica;
 
+import java.sql.Connection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,9 +13,8 @@ public class PessoaLista implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		PessoaDAO dao = new PessoaDAO();
-		List<Pessoa> pessoas = dao.getLista();
-		dao.fechaConexao();
+		Connection connection = (Connection) request.getAttribute("connection");		
+		List<Pessoa> pessoas = new PessoaDAO(connection).getLista();
 		request.setAttribute("pessoas", pessoas);
 		return "/WEB-INF/jsp/lista-pessoa.jsp";
 	}

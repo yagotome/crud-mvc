@@ -9,14 +9,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import jdbc.ConnectionFactory;
 import model.Pessoa;
 
 public class PessoaDAO {
 	private Connection connection;
 	
-	public PessoaDAO() {
-		this.connection = ConnectionFactory.getConnection();		
+	public PessoaDAO(Connection connection) {
+		this.connection = connection;		
 	}
 	
 	public void insere(Pessoa pessoa) {
@@ -83,11 +82,4 @@ public class PessoaDAO {
 		return pessoas;
 	}
 
-	public void fechaConexao() {
-		try {
-			this.connection.close();
-		} catch (SQLException e) {
-			throw new RuntimeException("Erro ao fechar conexão");
-		}
-	}
 }
