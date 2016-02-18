@@ -57,13 +57,13 @@
 	<c:import url="header.jsp" />
 	<table>
 		<tr>
-			<td>Id</td>
-			<td>Nome</td>
-			<td>Idade</td>
-			<td>Data de nascimento</td>
-			<td>Sexo</td>
-			<td>Excluir</td>			
-			<td>Alterar</td>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Idade</th>
+			<th>Data de nascimento</th>
+			<th>Sexo</th>
+			<th>Excluir</th>			
+			<th>Alterar</th>
 		</tr>
 		<c:forEach var="pessoa" items="${pessoas}">
 			<tr>
