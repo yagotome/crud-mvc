@@ -2,7 +2,7 @@
 <%@attribute name="value"%>
 <div>
 	<label for="${id}">Sexo:* </label>		
-	<select id="${id}" name="${id}" required>
+	<select id="${id}" name="${id}">
 		<option value="">Selecione</option>
 		<option value="Masculino" ${value == 'Masculino' ? 'selected' : ''}>Masculino</option>
 		<option value="Feminino" ${value == 'Feminino' ? 'selected' : ''}>Feminino</option>

@@ -18,11 +18,11 @@
 			<yago:campoTexto label="Id:" id="id" type="number" value="${param.id}" />
 			<br>
 		</c:if>
-		<yago:campoTexto label="Nome:" id="nome" value="${param.nome}" />
+		<yago:campoTexto label="Nome*:" id="nome" value="${param.nome}" required="true" />
 		<br>
 		<yago:campoTexto label="E-mail:" type="email" id="email" value="${param.email}" />
 		<br>
-		<yago:campoTexto label="Data de nascimento:" type="date" id="data_nascimento" value="${param.nasc}" />		
+		<yago:campoTexto label="Data de nascimento*:" type="date" id="data_nascimento" value="${param.nasc}" required="true" />		
 		<br>
 		<yago:comboSexo id="sexo" value="${param.sexo}" />
 		<br>
