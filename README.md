@@ -1,4 +1,4 @@
-# crud-mvc
+# crud-mvc-pessoas
 This is a CRUD java web project designed under MVC to learning.
 
 This application uses mysql database so you must have mysql server.
